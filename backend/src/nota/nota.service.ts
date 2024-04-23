@@ -27,7 +27,7 @@ export class NotaService {
         return nota;
     }
     async findByIdUser(id: number): Promise<NotaEntity> {
-        const nota = await this.notaRepository.findOne({ where: {  } });
+        const nota = await this.notaRepository.findOne({ where: {  id} });
         if(!nota){
             throw new NotFoundException('No existe la nota');
         }
@@ -46,6 +46,7 @@ export class NotaService {
         notaActualizada.contenido? nota.contenido = notaActualizada.contenido : nota.contenido = nota.contenido;
         notaActualizada.categoria? nota.categoria = notaActualizada.categoria : nota.categoria = nota.categoria;
         notaActualizada.activo? nota.activo = notaActualizada.activo : nota.activo = nota.activo;
+        notaActualizada.usuario? nota.usuario = notaActualizada.usuario : nota.usuario = nota.usuario;
         await this.notaRepository.save(nota);
         return {message: 'Nota actualizada'}
 
