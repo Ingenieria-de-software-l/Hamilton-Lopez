@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import {ConfigModule, ConfigService} from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { NotaModule } from './nota/nota.module';
+import { UsuarioModule } from './usuario/usuario.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -24,7 +25,8 @@ import { NotaModule } from './nota/nota.module';
       }),
       inject: [ConfigService],
     }),
-    NotaModule
+    NotaModule,
+    UsuarioModule
     
     
   ],

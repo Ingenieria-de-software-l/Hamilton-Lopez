@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { NotaRepository } from './nota.repository';
 import { NotaEntity } from './nota.entity';
@@ -13,7 +13,7 @@ export class NotaService {
     async getAll(): Promise<NotaEntity[]> {
         const list = await this.notaRepository.find();
         if(!list.length){
-            throw new Error('No hay notas');
+            throw new  NotFoundException('No hay notas');
         }
         return list;
           
@@ -22,14 +22,14 @@ export class NotaService {
     async findById(id: number): Promise<NotaEntity> {
         const nota = await this.notaRepository.findOne({ where: { id } });
         if(!nota){
-            throw new Error('No existe la nota');
+            throw new NotFoundException('No existe la nota');
         }
         return nota;
     }
     async findByIdUser(id: number): Promise<NotaEntity> {
         const nota = await this.notaRepository.findOne({ where: {  } });
         if(!nota){
-            throw new Error('No existe la nota');
+            throw new NotFoundException('No existe la nota');
         }
         return nota;
     }
