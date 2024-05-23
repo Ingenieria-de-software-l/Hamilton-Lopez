@@ -42,8 +42,8 @@ export class ListaNotaComponent{
         text: 'No hay vuelta atrás',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Sip',
-        cancelButtonText: 'Nops'
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No'
       }).then((result) => {
         if (result.value) {
           this.notaService.delete(id).subscribe(res => this.cargarNotas());
@@ -52,8 +52,6 @@ export class ListaNotaComponent{
             'Nota eliminado',
             'success'
           );
-        // For more information about handling dismissals please visit
-        // https://sweetalert2.github.io/#handling-dismissals
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire(
             'Cancelado',

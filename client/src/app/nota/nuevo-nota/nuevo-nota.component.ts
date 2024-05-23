@@ -16,6 +16,7 @@ export class NuevoNotaComponent {
   fecha = new Date();
   usuario = 1;
   estado = false;
+  categoria = '';
 
   constructor(
     private notaService: NotaService,
@@ -24,7 +25,7 @@ export class NuevoNotaComponent {
   
   }
   onCreate(): void {
-    const nota = new Nota(this.titulo, this.contenido, this.fecha, this.estado, this.usuario);
+    const nota = new Nota(this.titulo, this.contenido, this.fecha, this.estado, this.usuario, this.categoria);
   
     this.notaService.save(nota).subscribe(
       data => {

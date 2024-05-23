@@ -12,12 +12,26 @@
                     <input type="text" class="form-control" id="contenido" name="contenido" [(ngModel)]="contenido"  required
                         autocomplete="off">
                 </div>
+                <div class="form-group"> 
+                    <label for="categoria">Categoria</label>
+                    <select class="form-select" id ="categoria" name="categoria" [(ngModel)]="categoria">
+                    <option value="Trabajo" selected>Trabajo</option>
+                    <option value="Estudio">Estudio</option>
+                    <option value="Finanzas">Finanzas</option>
+                    <option value="Salud y Bienestar">Salud y Bienestar</option>
+                    <option value="Hogar">Hogar</option>
+                    <option value="Viajes">Viajes</option>
+                    <option value="Hobbies">Hobbies</option>
+                  </select></div>
+               
              
-              
+               <div class="botones">
                 <button type="submit" class="btn btn-outline-success btn-block">
                     <i class="far fa-plus-square"></i> Crear</button>
                 <button class="btn btn-outline-primary btn-block" (click)="volver()"><i
                         class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+               </div>
+               
             </form>
         </div>
     </div>
