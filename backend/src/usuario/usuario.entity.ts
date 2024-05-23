@@ -22,7 +22,7 @@ export class UsuarioEntity{
     @OneToMany(() => NotaEntity, nota => nota.usuario)
     notas: NotaEntity[];
 
-   
-
+    @Column({type:'text', nullable: false})
+    tipo: string;
 
 }

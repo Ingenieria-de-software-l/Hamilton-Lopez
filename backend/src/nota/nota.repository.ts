@@ -5,3 +5,5 @@ import { NotaEntity } from "./nota.entity";
 export class NotaRepository extends Repository<NotaEntity> {
    
 }
+
+

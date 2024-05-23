@@ -1,27 +1,23 @@
-import { Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Nota } from '../../models/nota';
 import { NotaService } from '../../services/nota.service';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule} from '@angular/common/http';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-lista-nota',
-  standalone: true,
-  imports: [RouterModule,HttpClientModule],
-  templateUrl: 'lista-nota.component.html',
-  styleUrl: 'lista-nota.component.css'
+  templateUrl: './lista-nota.component.html',
+  styleUrls: ['./lista-nota.component.css']
 
 })
-
-export class ListaNotaComponent {
+export class ListaNotaComponent{
+  
   notas: Nota[] = [];
   listaVacia = undefined;
 
   constructor(
     private notaService: NotaService
-    ) { }
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.cargarNotas();
   }
 
@@ -29,15 +25,46 @@ export class ListaNotaComponent {
     this.notaService.lista().subscribe(
       data => {
         this.notas = data;
+        this.listaVacia = undefined;
       },
       err => {
-        console.log(err);
+        this.listaVacia = err.error.message;
       }
     );
+
   }
 
-  borrar(id: number) {
-    console.log(id);
+  borrar(id?: number) : undefined{
+   
+    if (id !== undefined) {
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'No hay vuelta atrás',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sip',
+        cancelButtonText: 'Nops'
+      }).then((result) => {
+        if (result.value) {
+          this.notaService.delete(id).subscribe(res => this.cargarNotas());
+          Swal.fire(
+            'OK',
+            'Nota eliminado',
+            'success'
+          );
+        // For more information about handling dismissals please visit
+        // https://sweetalert2.github.io/#handling-dismissals
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          Swal.fire(
+            'Cancelado',
+            'Nota a salvo',
+            'error'
+          );
+        }
+      });
+    }
+    
   }
+  
 
 }

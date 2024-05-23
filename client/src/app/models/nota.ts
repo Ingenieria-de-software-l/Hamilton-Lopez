@@ -4,15 +4,15 @@ export class Nota {
     contenido?: string;
     fecha?: Date;
     estado?: boolean;
-    usuarioId?: number;
+    usuario?: number;
 
-    constructor(id: number, titulo: string, contenido: string, fecha: Date, estado: boolean, usuarioId: number) {
-        this.id = id;
+    constructor( titulo: string, contenido: string, fecha: Date, estado: boolean, usuario: number) {
+       
         this.titulo = titulo;
         this.contenido = contenido;
         this.fecha = fecha;
         this.estado = estado;
-        this.usuarioId = usuarioId;
+        this.usuario = usuario;
     }
 
 }

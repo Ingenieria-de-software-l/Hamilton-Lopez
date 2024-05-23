@@ -6,12 +6,10 @@ describe('ListaNotaComponent', () => {
   let component: ListaNotaComponent;
   let fixture: ComponentFixture<ListaNotaComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ListaNotaComponent]
-    })
-    .compileComponents();
-    
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [ListaNotaComponent]
+    });
     fixture = TestBed.createComponent(ListaNotaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

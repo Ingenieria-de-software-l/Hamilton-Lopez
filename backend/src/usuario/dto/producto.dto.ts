@@ -7,5 +7,6 @@ export class NotaDto{
     correo?: string;
     password?: string;
     notas?: NotaEntity[];
+    tipo?: string;
   
 }

@@ -7,6 +7,7 @@ import { Nota } from '../models/nota';
   providedIn: 'root'
 })
 export class NotaService {
+  
 
   notaURL = 'http://localhost:8080/nota/';
 
@@ -31,6 +32,6 @@ export class NotaService {
 
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(`${this.notaURL}${id}`);
-  }
+    }
 
 }
