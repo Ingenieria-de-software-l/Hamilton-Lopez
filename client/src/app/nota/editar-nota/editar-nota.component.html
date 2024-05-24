@@ -1,1 +1,34 @@
-<p>editar-nota works!</p>
+<div class="container" *ngIf="nota">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="nota.titulo"
+                        required autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="contenido">Contenido</label>
+                    <input type="text" class="form-control" id="contenido" name="contenido" [(ngModel)]="nota.contenido"
+                        required autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <select class="form-select" id ="categoria" name="categoria" [(ngModel)]="nota.categoria">
+                    <option value="Trabajo" selected>Trabajo</option>
+                    <option value="Estudio">Estudio</option>
+                    <option value="Finanzas">Finanzas</option>
+                    <option value="Salud y Bienestar">Salud y Bienestar</option>
+                    <option value="Hogar">Hogar</option>
+                    <option value="Viajes">Viajes</option>
+                    <option value="Hobbies">Hobbies</option>
+                  </select></div>
+                   
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                    <i class="fas fa-edit"></i> Actualizar</button>
+                <button class="btn btn-outline-primary btn-block" (click)="volver()"><i
+                        class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,11 @@
 export class Nota {
     id?: number;
-    titulo?: string;
-    contenido?: string;
-    fecha?: Date;
-    estado?: boolean;
-    usuario?: number;
-    categoria?: string;
+    titulo: string;
+    contenido: string;
+    fecha: Date;
+    estado: boolean;
+    usuario: number;
+    categoria: string;
 
     constructor( titulo: string, contenido: string, fecha: Date, estado: boolean, usuario: number, categoria: string) {
        

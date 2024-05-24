@@ -52,6 +52,7 @@ export class ListaNotaComponent{
             'Nota eliminado',
             'success'
           );
+          this.cargarNotas();
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire(
             'Cancelado',
