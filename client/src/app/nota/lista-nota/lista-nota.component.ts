@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Nota } from '../../models/nota';
 import { NotaService } from '../../services/nota.service';
 import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-lista-nota',
   templateUrl: './lista-nota.component.html',
@@ -14,15 +15,18 @@ export class ListaNotaComponent{
   listaVacia = undefined;
 
   constructor(
-    private notaService: NotaService
+    private notaService: NotaService,private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.cargarNotas();
+    console.log(this.authService.getUserId());
+
   }
 
   cargarNotas(): void {
-    this.notaService.lista().subscribe(
+    const id = this.authService.getUserId();
+    this.notaService.getNotasByUsuario(+id).subscribe(
       data => {
         this.notas = data;
         this.listaVacia = undefined;

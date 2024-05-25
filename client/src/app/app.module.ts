@@ -9,6 +9,8 @@ import { EditarNotaComponent } from './nota/editar-nota/editar-nota.component';
 import { NuevoNotaComponent } from './nota/nuevo-nota/nuevo-nota.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistroComponent } from './auth/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
     ListaNotaComponent,
     DetalleNotaComponent,
     EditarNotaComponent,
-    NuevoNotaComponent
+    NuevoNotaComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

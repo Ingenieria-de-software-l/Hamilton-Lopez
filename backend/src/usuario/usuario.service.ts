@@ -28,8 +28,8 @@ export class UsuarioService {
     }
    
 
-    async create(nota: UsuarioEntity): Promise<any> {
-        const newUsuario = await this.usuarioRepository.create(nota);
+    async create(usuario: UsuarioEntity): Promise<any> {
+        const newUsuario = await this.usuarioRepository.create(usuario);
         await this.usuarioRepository.save(newUsuario);
         return {message: 'Usuario creado'}
         
@@ -51,6 +51,15 @@ export class UsuarioService {
         await this.usuarioRepository.delete(usuario);
         return {message: 'Usuario eliminado'}
     }
+    async findByEmail(correo: string): Promise<UsuarioEntity> {
+       
+    
+        const usuario = await this.usuarioRepository.findOne({ where: { correo } });
+        if(!usuario){
+            throw new NotFoundException('No existe el usuario');
+        }
+        return usuario;
+      }
 
 
 }

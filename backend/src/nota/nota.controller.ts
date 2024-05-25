@@ -34,7 +34,10 @@ export class NotaController {
     async delete(@Param('id', ParseIntPipe) id: number) {
         return await this.notaService.delete(id);
     }
-
+    @Get('usuario/:userId')
+    async getNotasByUsuario(@Param('userId') userId: number) {
+      return this.notaService.findByUsuario(userId);
+    }
 
     
 

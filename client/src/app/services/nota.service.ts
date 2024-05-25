@@ -33,5 +33,8 @@ export class NotaService {
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(`${this.notaURL}${id}`);
     }
+    public getNotasByUsuario(userId: number): Observable<Nota[]> {
+      return this.httpClient.get<Nota[]>(`${this.notaURL}usuario/${userId}`);
+    }
 
 }

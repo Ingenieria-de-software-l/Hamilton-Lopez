@@ -58,6 +58,9 @@ export class NotaService {
         await this.notaRepository.delete(nota);
         return {message: 'Nota eliminada'}
     }
+    async findByUsuario(userId: number): Promise<NotaEntity[]> {
+        return this.notaRepository.find({ where: { usuario: { id: userId } } });
+      }
 
 
 
