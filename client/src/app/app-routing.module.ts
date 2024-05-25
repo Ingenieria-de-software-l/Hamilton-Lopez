@@ -8,7 +8,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegistroComponent } from './auth/registro/registro.component';
 
 const routes: Routes = [
-  {path: '', component: ListaNotaComponent},
+  {path: '', component: LoginComponent},
+  {path: 'notas', component: ListaNotaComponent},
   {path: 'detalle/:id', component: DetalleNotaComponent},
   {path: 'nuevo', component: NuevoNotaComponent},
   {path: 'editar/:id', component: EditarNotaComponent},

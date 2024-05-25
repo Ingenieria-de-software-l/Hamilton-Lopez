@@ -29,12 +29,12 @@ export class DetalleNotaComponent implements OnInit  {
           icon: 'error',
           confirmButtonText: 'Aceptar'
         });
-        this.router.navigate(['/']);
+        this.router.navigate(['/notas']);
       }
     );
   }
 
   volver(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/notas']);
   }
 }

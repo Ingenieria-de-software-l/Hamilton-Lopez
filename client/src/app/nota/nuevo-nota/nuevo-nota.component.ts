@@ -38,7 +38,7 @@ export class NuevoNotaComponent {
           icon: 'success',
           confirmButtonText: 'Aceptar'
         }).then(() => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/notas']);
         });
       },
       err => {
@@ -52,37 +52,9 @@ export class NuevoNotaComponent {
       }
     );
   }
-/*
-  onCreate(): void {
-    const nota = new Nota(this.titulo, this.contenido, this.fecha, this.estado, this.usuarioId);
-
-    this.notaService.save(nota).subscribe(
-      data => {
-        this.router.navigate(['/']);
-      },
-      err => {
-        console.log(err);
-      }
-    )
-
-   /* const nota = new Nota(this.titulo, this.contenido, this.fecha, this.estado, this.usuarioId);
-    this.notaService.save(producto).subscribe(
-      data => {
-        this.toastr.success(data.message, 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
-        });
-        this.router.navigate(['/']);
-      },
-      err => {
-        this.toastr.error(err.error.message, 'Fail', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
-        });
-      }
-    );
-  }*/
 
   volver(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/notas']);
   }
 
 }

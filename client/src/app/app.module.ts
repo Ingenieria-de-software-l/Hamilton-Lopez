@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistroComponent } from './auth/registro/registro.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegistroComponent } from './auth/registro/registro.component';
     EditarNotaComponent,
     NuevoNotaComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -20,26 +20,6 @@ export class LoginComponent {
     console.log(this.auth.getUserId());
   }
 
-  /*onLogin(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
-    this.auth.validar(this.correo, this.password).subscribe(
-      data => {
-        this.router.navigate(['/login']);
-      },
-      err => {
-        Swal.fire({
-          title: "¡Error!",
-          text: "Hubo un error al iniciar sesión. Inténtalo de nuevo.",
-          icon: 'error',
-          confirmButtonText: 'Aceptar'
-        });
-        this.router.navigate(['/login']);
-      }
-      
-    )
-
-
-  }*/
   login() {
     this.auth.validar(this.correo, this.password).subscribe(
       (user) => {
@@ -48,10 +28,7 @@ export class LoginComponent {
           if(user.id){
           this.auth.setLogin(user.id);
           }
-          // Aquí puedes guardar el ID del usuario en un servicio compartido
-          // o en el almacenamiento local del navegador
-         // localStorage.setItem('userId', user.id); // Ejemplo de almacenamiento local
-          this.router.navigate(['/dashboard']); // Redirige a una página después del login
+          this.router.navigate(['/notas']); // Redirige a una página después del login
         } else {
           Swal.fire({
             title: "¡Error!",

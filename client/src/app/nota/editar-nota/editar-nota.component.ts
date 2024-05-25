@@ -29,7 +29,7 @@ export class EditarNotaComponent implements OnInit {
           icon: 'error',
           confirmButtonText: 'Aceptar'
         });
-        this.router.navigate(['/']);
+        this.router.navigate(['/notas']);
        
       }
     );
@@ -46,7 +46,7 @@ export class EditarNotaComponent implements OnInit {
           icon: 'success',
           confirmButtonText: 'Aceptar'
         }).then(() => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/notas']);
         });
       },
       err => {
@@ -63,6 +63,6 @@ export class EditarNotaComponent implements OnInit {
   }
 
   volver(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/notas']);
   }
 }
